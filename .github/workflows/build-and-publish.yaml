@@ -10,14 +10,25 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v3
+
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '16.16.0'
+    
     - name: Install Dependencies
       run: npm install
+
     - name: Build Electron App
       run: npm run make
+
+    - name: LS folder
+      run: |
+        ls ./electron-app/out/make/
+
+    - name: Publish
+      run: npm run publish
+
     - name: Publish Release
       uses: softprops/action-gh-release@v1
       with:
