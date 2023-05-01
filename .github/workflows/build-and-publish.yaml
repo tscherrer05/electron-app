@@ -24,7 +24,9 @@ jobs:
 
     - name: LS folder
       run: |
-        ls ./electron-app/out/make/
+        ls .
+        ls ./electron-app
+      continue-on-error: true
 
     - name: Publish
       run: npm run publish
