@@ -1,0 +1,21 @@
+name: Build and Publish Electron App
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.16.0'
+    - name: Install Dependencies
+      run: npm install
+    - name: Build Electron App
+      run: npm run build
+    - name: Publish Release
+      uses: softprops/action-gh-release@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
