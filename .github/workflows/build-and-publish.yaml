@@ -29,9 +29,6 @@ jobs:
         ls ./out/make
       continue-on-error: true
 
-    - name: Set env
-      run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
-
     - name: Publish
       run: npm run publish
 
@@ -42,3 +39,5 @@ jobs:
           ./electron-app/out/make/*
         token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: "v1.0.0"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
