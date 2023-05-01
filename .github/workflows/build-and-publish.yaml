@@ -21,5 +21,7 @@ jobs:
     - name: Publish Release
       uses: softprops/action-gh-release@v1
       with:
+        files: |
+          ./out/make/*
         token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: "v1.0.0"
