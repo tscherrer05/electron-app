@@ -25,8 +25,12 @@ jobs:
     - name: LS folder
       run: |
         ls .
-        ls ./electron-app
+        ls ./out
+        ls ./out/make
       continue-on-error: true
+
+    - name: Set env
+      run: export GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
 
     - name: Publish
       run: npm run publish
