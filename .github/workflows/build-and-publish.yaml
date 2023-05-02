@@ -30,7 +30,7 @@ jobs:
       run: npm run publish
 
     - name: Print created artifacts
-      run: tree ./out
+      run: ls -l ./out/electron-app-darwin-x64/
       continue-on-error: true
 
     - name: Publish Release
