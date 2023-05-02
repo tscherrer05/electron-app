@@ -29,12 +29,9 @@ jobs:
     - name: Publish
       run: npm run publish
 
-    - name: LS folder
-      run: ls -l ./out
+    - name: Print created artifacts
+      run: ls -l ./out/electron-app-darwin-x64
       continue-on-error: true
-
-    - name: Set token as env
-      run: export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish Release
       uses: softprops/action-gh-release@v1
