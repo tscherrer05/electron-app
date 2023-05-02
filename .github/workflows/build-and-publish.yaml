@@ -32,6 +32,9 @@ jobs:
     - name: Publish
       run: npm run publish
 
+    - name: Set token as env
+      run: export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+
     - name: Publish Release
       uses: softprops/action-gh-release@v1
       with:
