@@ -36,7 +36,7 @@ jobs:
     - name: Publish Release
       uses: softprops/action-gh-release@v1
       with:
-        files: out/*/*
+        files: ./out/electron-app-darwin-x64/*
         token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: "v1.0.0"
         draft: false
